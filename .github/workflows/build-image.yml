@@ -1,13 +1,5 @@
 name: Build container image
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - 'main'
-  pull_request:
-    paths:
-      - .github/workflows/build-image.yml
-      - Dockerfile
+on: workflow_dispatch
 permissions:
   contents: read
   packages: write

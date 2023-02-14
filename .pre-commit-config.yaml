@@ -1,0 +1,58 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-case-conflict
+      - id: check-merge-conflict
+        args: ['--assume-in-merge']
+        exclude: ^(CONTRIBUTING|AUTHORS)\.md$
+      - id: check-vcs-permalinks
+      - id: check-yaml
+        exclude: ^\.rubocop\.yml$
+      - id: end-of-file-fixer
+        exclude: ^(\.devcontainer/.+|bin/.+|priv-config|spec/.+\.txt|.+(\.h[at]ml|win95\.scss))$
+        exclude_types: ['image', 'javascript', 'json', 'jsx', 'map', 'ruby']
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+        exclude: ^spec/.+\.txt$
+      - id: trailing-whitespace
+        exclude: ^(app/.+/(glitch|__tests__)/.+\.s(css|nap)|public/clock\.js|spec/.+\.txt|.+\.haml|.+file)$
+        exclude_types: ['image', 'ruby']
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks:
+      - id: text-unicode-replacement-char
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.0-alpha.6
+    hooks:
+      - id: prettier
+        exclude: ^.+\.light\.css$
+        exclude_types: ['html', 'javascript', 'markdown', 'scss']
+      - id: prettier
+        args: ['--prose-wrap=always']
+        files: (^|\.github/)[a-zA-Z_]+\.md$
+
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.4.2
+    hooks:
+      - id: remove-tabs
+        exclude: ^(app/javascript/.+\.(jsx?|svg)|spec/.+\.txt)$
+
+  - repo: https://github.com/sirosen/texthooks
+    rev: 0.5.0
+    hooks:
+      - id: fix-smartquotes
+        exclude: ^(app/.+/(glitch|locales|reducers)/.+\.js(on|x)?|config/.+\.yml|spec/.+\.txt|.+\.rb)$
+      - id: fix-spaces
+        exclude: ^(app/.+/locales/.+\.json|config/.+\.yml|spec/.+\.(rb|txt)|.+\.s(ample|vg))$
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.22.0
+    hooks:
+      - id: check-github-workflows
+
+ci:
+  autoupdate_schedule: quarterly
