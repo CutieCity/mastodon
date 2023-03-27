@@ -1,0 +1,339 @@
+.account__header {
+  &__bar {
+    border-bottom: none;
+    padding-bottom: 4px !important;
+  }
+
+  &__tabs {
+    height: auto;
+    align-items: flex-start;
+    margin-top: -55px;
+    padding: 5px 10px 16px;
+
+    &__name {
+      padding: 0 10px;
+
+      h1 {
+        font-size: 17px;
+        line-height: 22px;
+        font-weight: 700;
+
+        small {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+  &__bio {
+    .account__header__content {
+      padding: 0;
+    }
+
+    .account__header__content,
+    .account__header__fields {
+      margin: 16px 20px;
+    }
+
+    .account__header__fields {
+      border: none;
+      border-radius: 4px;
+      background: darken($ui-base-color, 4%);
+
+      dl {
+        display: block;
+        padding: 11px 16px;
+        border-bottom-color: lighten($ui-base-color, 4%);
+      }
+
+      dd, dt {
+        font-size: 13px;
+        line-height: 18px;
+        padding: 0;
+        text-align: initial;
+      }
+
+      dt {
+        width: auto;
+        background: transparent;
+        text-transform: uppercase;
+        color: $dark-text-color;
+      }
+
+      dd {
+        color: $darker-text-color;
+      }
+
+      a {
+        color: lighten($ui-highlight-color, 8%);
+      }
+
+      .verified {
+        background: rgba(121, 189, 154, 0.16);
+        border: 1px solid rgba($valid-value-color, 0.4);
+        margin-top: -1px;
+
+        &:first-child {
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          margin-top: 0;
+        }
+
+        &:last-child {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+
+        a, dd, dt {
+          color: $valid-value-color;
+        }
+      }
+    }
+  }
+
+  &__extra {
+    margin-top: 0;
+  }
+
+  &__account-note {
+    background: darken($ui-base-color, 4%);
+    border: none;
+    border-radius: 4px;
+    margin: 16px 20px;
+    padding: 11px 16px;
+
+    &__header {
+      color: $dark-text-color;
+      margin: 0;
+    }
+
+    &__content {
+      color: $darker-text-color;
+      padding: 0;
+    }
+
+    &__content, strong, textarea {
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    &__buttons .icon-button {
+      color: $dark-text-color;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+
+      &:hover, &:active, &:focus {
+        background: none;
+        color: lighten($ui-highlight-color, 8%);
+      }
+
+      &[disabled] {
+        color: darken($dark-text-color, 16%);
+      }
+
+      &:last-child {
+        margin-right: -6px;
+      }
+
+      &:only-child > span {
+        width: 1px;
+        overflow: hidden;
+        position: absolute;
+      }
+    }
+
+    textarea {
+      background: none;
+      margin: 0;
+      padding: 0;
+
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+
+  + * > .account__disclaimer {
+    border-top: 1px solid lighten($ui-base-color, 8%);
+
+    span {
+      margin-left: 0.25em;
+    }
+  }
+}
+
+.columns-area {
+  &__panels.about-page .server-banner__meta ~ * {
+    display: none;
+  }
+
+  .detailed-status, .status {
+    padding: 16px;
+
+    .status__content {
+      padding-top: 2px;
+
+      a {
+        color: $highlight-text-color;
+
+        &.unhandled-link .link-origin-tag {
+          display: inline-block;
+          background-color: rgba($gold-star, 0.1);
+          border: 1px solid rgba($gold-star, 0.5);
+          border-radius: 3px;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 12px;
+          padding: 4px 6px;
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+
+  .detailed-status {
+    &__display-name {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+
+      span, strong {
+        font-size: 15px;
+        line-height: 22px;
+      }
+
+      .display-name__account {
+        color: $light-text-color;
+      }
+    }
+
+    &__meta {
+      margin-top: 16px;
+
+      .dropdown-menu__text-button:focus {
+        outline: none;
+      }
+    }
+
+    .status__visibility-icon {
+      width: auto;
+    }
+  }
+
+  .status {
+    &.status-direct {
+      background: lighten($ui-base-color, 4%);
+      border-bottom-color: lighten($ui-base-color, 8%);
+    }
+
+    .status__info {
+      .status__avatar {
+        width: 46px;
+        height: 46px;
+      }
+
+      .status__display-name {
+        line-height: 22px;
+
+        .display-name__account {
+          font-size: 15px;
+        }
+      }
+
+      .status__info__icons {
+        padding-top: 6px;
+
+        .fa-at {
+          color: lighten($ui-highlight-color, 8%);
+        }
+
+        .fa-comment, .fa-users {
+          color: $ui-primary-color;
+          padding-bottom: 2px;
+        }
+
+        .fa-users {
+          font-size: 13px;
+        }
+
+        i.fa-fw {
+          padding-left: 0;
+          padding-right: 3px;
+        }
+
+        .status__relative-time {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .status__content {
+      line-height: 22px;
+    }
+
+    .status__action-bar {
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 16px;
+
+      &-button {
+        margin-right: 0;
+      }
+
+      .icon-button--with-counter {
+        padding: 0;
+
+        &:first-child {
+          margin: 0 14px 0 2px;
+        }
+
+        .icon-button__counter {
+          width: 0;
+          margin-left: 0;
+          white-space: nowrap;
+
+          .animated-number {
+            padding: 0 0 1px 4px;
+          }
+        }
+      }
+    }
+  }
+
+  .status__prepend {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 500;
+    margin: 0 0 16px 26px;
+
+    .fa {
+      width: 1.28571429em;
+      text-align: center;
+    }
+
+    > span {
+      margin-left: 3px;
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .status-card {
+    border: 1px solid lighten($ui-base-color, 8%);
+
+    &__content {
+      line-height: 18px;
+
+      > .status-card__description {
+        margin-bottom: 0;
+      }
+
+      > .status-card__host {
+        color: $dark-text-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+en:
+  flavours:
+    cutiecity:
+      description: The default flavour for Cutie City.
+      name: Cutie City
+  skins:
+    cutiecity:
+      default: Cutie City (Dark)

@@ -1,0 +1,8 @@
+pack:
+  common:
+    filename: packs/common.js
+    stylesheet: true
+
+inherit_locales: glitch
+
+fallback: glitch
