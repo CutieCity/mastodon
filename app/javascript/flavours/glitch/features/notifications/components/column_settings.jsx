@@ -39,26 +39,41 @@ export default class ColumnSettings extends React.PureComponent {
     const showStr = <FormattedMessage id='notifications.column_settings.show' defaultMessage='Show in column' />;
     const soundStr = <FormattedMessage id='notifications.column_settings.sound' defaultMessage='Play sound' />;
 
+    /*
     const showPushSettings = pushSettings.get('browserSupport') && pushSettings.get('isSubscribed');
+    */
+    const showPushSettings = false;
     const pushStr = showPushSettings && <FormattedMessage id='notifications.column_settings.push' defaultMessage='Push notifications' />;
 
     return (
+      /*
       <div>
+      */
+      <>
         {alertsEnabled && browserSupport && browserPermission === 'denied' && (
+          /*
           <div className='column-settings__row column-settings__row--with-margin'>
+          */
+          <div className='column-settings__row'>
             <span className='warning-hint'><FormattedMessage id='notifications.permission_denied' defaultMessage='Desktop notifications are unavailable due to previously denied browser permissions request' /></span>
           </div>
         )}
 
         {alertsEnabled && browserSupport && browserPermission === 'default' && (
+          /*
           <div className='column-settings__row column-settings__row--with-margin'>
+          */
+          <div className='column-settings__row'>
             <span className='warning-hint'>
               <FormattedMessage id='notifications.permission_required' defaultMessage='Desktop notifications are unavailable because the required permission has not been granted.' /> <GrantPermissionButton onClick={onRequestNotificationPermission} />
             </span>
           </div>
         )}
 
+        {/*
         <div className='column-settings__row'>
+        */}
+        <div className='column-settings__row column-header__links'>
           <ClearColumnButton onClick={onClear} />
         </div>
 
@@ -196,7 +211,10 @@ export default class ColumnSettings extends React.PureComponent {
             </div>
           </div>
         )}
+      {/*
       </div>
+      */}
+      </>
     );
   }
 

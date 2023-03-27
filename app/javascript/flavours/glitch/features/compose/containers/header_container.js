@@ -13,7 +13,10 @@ const mapStateToProps = state => {
   return {
     columns: state.getIn(['settings', 'columns']),
     unreadNotifications: state.getIn(['notifications', 'unread']),
+    /*
     showNotificationsBadge: state.getIn(['local_settings', 'notifications', 'tab_badge']),
+    */
+    showNotificationsBadge: true,
   };
 };
 

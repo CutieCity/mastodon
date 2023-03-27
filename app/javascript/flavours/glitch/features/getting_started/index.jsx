@@ -145,7 +145,10 @@ class GettingStarted extends ImmutablePureComponent {
 
     if (signedIn) {
       if (!multiColumn || !columns.find(item => item.get('id') === 'DIRECT')) {
+        /*
         navItems.push(<ColumnLink key='conversations' icon='envelope' text={intl.formatMessage(messages.direct)} to='/conversations' />);
+        */
+        navItems.push(<ColumnLink key='conversations' icon='at' text={intl.formatMessage(messages.direct)} to='/conversations' />);
       }
 
       if (!multiColumn || !columns.find(item => item.get('id') === 'BOOKMARKS')) {
@@ -169,7 +172,10 @@ class GettingStarted extends ImmutablePureComponent {
     }
 
     return (
+      /*
       <Column bindToDocument={!multiColumn} name='getting-started' icon='asterisk' heading={intl.formatMessage(messages.heading)} label={intl.formatMessage(messages.menu)} hideHeadingOnMobile>
+      */
+      <Column bindToDocument={!multiColumn} name='getting-started' icon='bars' heading={intl.formatMessage(messages.heading)} label={intl.formatMessage(messages.menu)} hideHeadingOnMobile>
         <div className='scrollable optionally-scrollable'>
           <div className='getting-started__wrapper'>
             {!multiColumn && signedIn && <NavigationBar account={myAccount} />}
@@ -181,7 +187,9 @@ class GettingStarted extends ImmutablePureComponent {
                 {listItems}
                 <ColumnSubheading text={intl.formatMessage(messages.settings_subheading)} />
                 { preferencesLink !== undefined && <ColumnLink icon='cog' text={intl.formatMessage(messages.preferences)} href={preferencesLink} /> }
+                {/*
                 <ColumnLink icon='cogs' text={intl.formatMessage(messages.settings)} onClick={openSettings} />
+                */}
               </React.Fragment>
             )}
           </div>

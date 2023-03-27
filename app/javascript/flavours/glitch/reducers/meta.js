@@ -15,7 +15,10 @@ export default function meta(state = initialState, action) {
   case STORE_HYDRATE:
     return state.merge(action.state.get('meta'))
       .set('permissions', action.state.getIn(['role', 'permissions']))
+      /*
       .set('layout', layoutFromWindow(action.state.getIn(['local_settings', 'layout'])));
+      */
+      .set('layout', layoutFromWindow('auto'));
   case APP_LAYOUT_CHANGE:
     return state.set('layout', action.layout);
   default:

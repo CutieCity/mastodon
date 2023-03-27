@@ -42,7 +42,10 @@ class Account extends ImmutablePureComponent {
   };
 
   static defaultProps = {
+    /*
     size: 36,
+    */
+    size: 46,
   };
 
   handleFollow = () => {
@@ -87,7 +90,10 @@ class Account extends ImmutablePureComponent {
         <div className='account'>
           <div className='account__wrapper'>
             <div className='account__display-name'>
+              {/*
               <div className='account__avatar-wrapper'><Skeleton width={36} height={36} /></div>
+              */}
+              <div className='account__avatar-wrapper'><Skeleton width={46} height={46} /></div>
               <DisplayName />
             </div>
           </div>

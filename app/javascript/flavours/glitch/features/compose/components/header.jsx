@@ -82,7 +82,10 @@ class Header extends ImmutablePureComponent {
           aria-label={intl.formatMessage(messages.start)}
           title={intl.formatMessage(messages.start)}
           to='/getting-started'
+        /*
         ><Icon id='asterisk' /></Link>
+        */
+        ><Icon id='bars' /></Link>
         {renderForColumn('HOME', (
           <Link
             aria-label={intl.formatMessage(messages.home_timeline)}
@@ -118,10 +121,15 @@ class Header extends ImmutablePureComponent {
         ))}
         <a
           aria-label={intl.formatMessage(messages.settings)}
+          /*
           onClick={onSettingsClick}
+          */
           href='/settings/preferences'
           title={intl.formatMessage(messages.settings)}
+        /*
         ><Icon id='cogs' /></a>
+        */
+        ><Icon id='cog' /></a>
         <a
           aria-label={intl.formatMessage(messages.logout)}
           onClick={this.handleLogoutClick}

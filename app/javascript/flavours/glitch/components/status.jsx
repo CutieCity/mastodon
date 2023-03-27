@@ -49,9 +49,11 @@ export const defaultMediaVisibility = (status, settings) => {
     status = status.get('reblog');
   }
 
+  /*
   if (settings.getIn(['media', 'reveal_behind_cw']) && !!status.get('spoiler_text')) {
     return true;
   }
+  */
 
   return (displayMedia !== 'hide_all' && !status.get('sensitive') || displayMedia === 'show_all');
 };
@@ -163,15 +165,22 @@ class Status extends ImmutablePureComponent {
     }
 
     // Update state based on new props
+    /*
     if (!nextProps.settings.getIn(['collapsed', 'enabled'])) {
+    */
       if (prevState.isCollapsed) {
         update.isCollapsed = false;
         updated = true;
       }
+    /*
     }
+    */
 
     // Handle uncollapsing toots when the shared CW state is expanded
+    /*
     if (nextProps.settings.getIn(['content_warnings', 'shared_state']) &&
+    */
+    if (
       nextProps.status?.get('spoiler_text')?.length && nextProps.status?.get('hidden') === false &&
       prevState.statusPropHidden !== false && prevState.isCollapsed
     ) {
@@ -200,6 +209,7 @@ class Status extends ImmutablePureComponent {
       updated = true;
     }
 
+    /*
     if (nextProps.settings.getIn(['media', 'reveal_behind_cw']) !== prevState.revealBehindCW) {
       update.revealBehindCW = nextProps.settings.getIn(['media', 'reveal_behind_cw']);
       if (update.revealBehindCW) {
@@ -207,6 +217,7 @@ class Status extends ImmutablePureComponent {
       }
       updated = true;
     }
+    */
 
     return updated ? update : null;
   }
@@ -248,8 +259,12 @@ class Status extends ImmutablePureComponent {
 
     // Don't autocollapse if CW state is shared and status is explicitly revealed,
     // as it could cause surprising changes when receiving notifications
+    /*
     if (settings.getIn(['content_warnings', 'shared_state']) && status.get('spoiler_text').length && !status.get('hidden')) return;
+    */
+    if (status.get('spoiler_text').length && !status.get('hidden')) return;
 
+    /*
     let autoCollapseHeight = parseInt(autoCollapseSettings.get('height'));
     if (status.get('media_attachments').size && !muted) {
       autoCollapseHeight += 210;
@@ -267,10 +282,14 @@ class Status extends ImmutablePureComponent {
       // Hack to fix timeline jumps on second rendering when auto-collapsing
       this.setState({ autoCollapsed: true });
     }
+    */
 
     // Hack to fix timeline jumps when a preview card is fetched
     this.setState({
+      /*
       showCard: !this.props.muted && !this.props.hidden && this.props.status && this.props.status.get('card') && this.props.settings.get('inline_preview_cards'),
+      */
+      showCard: !this.props.muted && !this.props.hidden && this.props.status && this.props.status.get('card'),
     });
   }
 
@@ -281,7 +300,10 @@ class Status extends ImmutablePureComponent {
 
     const { muted, hidden, status, settings } = this.props;
 
+    /*
     const doShowCard = !muted && !hidden && status && status.get('card') && settings.get('inline_preview_cards');
+    */
+    const doShowCard = !muted && !hidden && status && status.get('card');
     if (this.state.autoCollapsed || (doShowCard && !this.state.showCard)) {
       if (doShowCard) this.setState({ showCard: true });
       if (this.state.autoCollapsed) this.setState({ autoCollapsed: false });
@@ -314,6 +336,7 @@ class Status extends ImmutablePureComponent {
   //  `setCollapsed()` automatically checks for us whether toot collapsing
   //  is enabled, so we don't have to.
   setCollapsed = (value) => {
+    /* Disable toot collapsing.
     if (this.props.settings.getIn(['collapsed', 'enabled'])) {
       if (value) {
         this.setExpansion(false);
@@ -322,10 +345,14 @@ class Status extends ImmutablePureComponent {
     } else {
       this.setState({ isCollapsed: false });
     }
+    */
   };
 
   setExpansion = (value) => {
+    /*
     if (this.props.settings.getIn(['content_warnings', 'shared_state']) && this.props.status.get('hidden') === value) {
+    */
+    if (this.props.status.get('hidden') === value) {
       this.props.onToggleHidden(this.props.status);
     }
 
@@ -375,11 +402,15 @@ class Status extends ImmutablePureComponent {
   };
 
   handleExpandedToggle = () => {
+    /*
     if (this.props.settings.getIn(['content_warnings', 'shared_state'])) {
+    */
       this.props.onToggleHidden(this.props.status);
+    /*
     } else if (this.props.status.get('spoiler_text')) {
       this.setExpansion(!this.state.isExpanded);
     }
+    */
   };
 
   handleOpenVideo = (options) => {
@@ -534,16 +565,23 @@ class Status extends ImmutablePureComponent {
     let media = contentMedia;
     let mediaIcons = contentMediaIcons;
 
+    /*
     if (settings.getIn(['content_warnings', 'media_outside'])) {
+    */
       media = extraMedia;
       mediaIcons = extraMediaIcons;
+    /*
     }
+    */
 
     if (status === null) {
       return null;
     }
 
+    /*
     const isExpanded = settings.getIn(['content_warnings', 'shared_state']) ? !status.get('hidden') : this.state.isExpanded;
+    */
+    const isExpanded = !status.get('hidden');
 
     const handlers = {
       reply: this.handleHotkeyReply,
@@ -662,8 +700,12 @@ class Status extends ImmutablePureComponent {
               lang={status.get('language')}
               inline
               sensitive={status.get('sensitive')}
+              /*
               letterbox={settings.getIn(['media', 'letterbox'])}
               fullwidth={settings.getIn(['media', 'fullwidth'])}
+              */
+              letterbox={true}
+              fullwidth={false}
               preventPlayback={isCollapsed || !isExpanded}
               onOpenVideo={this.handleOpenVideo}
               width={this.props.cachedMediaWidth}
@@ -683,8 +725,12 @@ class Status extends ImmutablePureComponent {
                 media={attachments}
                 lang={status.get('language')}
                 sensitive={status.get('sensitive')}
+                /*
                 letterbox={settings.getIn(['media', 'letterbox'])}
                 fullwidth={settings.getIn(['media', 'fullwidth'])}
+                */
+                letterbox={true}
+                fullwidth={false}
                 hidden={isCollapsed || !isExpanded}
                 onOpenMedia={this.handleOpenMedia}
                 cacheWidth={this.props.cacheMediaWidth}
@@ -701,7 +747,10 @@ class Status extends ImmutablePureComponent {
       if (!status.get('sensitive') && !(status.get('spoiler_text').length > 0) && settings.getIn(['collapsed', 'backgrounds', 'preview_images'])) {
         background = attachments.getIn([0, 'preview_url']);
       }
+    /*
     } else if (status.get('card') && settings.get('inline_preview_cards') && !this.props.muted) {
+    */
+    } else if (status.get('card') && !this.props.muted) {
       media.push(
         <Card
           onOpenMedia={this.handleOpenMedia}
@@ -757,6 +806,7 @@ class Status extends ImmutablePureComponent {
     const computedClass = classNames('status', `status-${status.get('visibility')}`, {
       collapsed: isCollapsed,
       'has-background': isCollapsed && background,
+      'local-only': !!status.get('local_only'),
       'status__wrapper-reply': !!status.get('in_reply_to_id'),
       unread,
       muted,
@@ -773,10 +823,15 @@ class Status extends ImmutablePureComponent {
           data-featured={featured ? 'true' : null}
           aria-label={textForScreenReader(intl, status, rebloggedByText, !status.get('hidden'))}
         >
+          {/*
           {!muted && prepend}
+          */}
+          {prepend}
           <header className='status__info'>
             <span>
+              {/*
               {muted && prepend}
+              */}
               {!muted || !isCollapsed ? (
                 <StatusHeader
                   status={status}
@@ -793,6 +848,7 @@ class Status extends ImmutablePureComponent {
               collapsed={isCollapsed}
               setCollapsed={setCollapsed}
               settings={settings.get('status_icons')}
+              parseClick={parseClick}
             />
           </header>
           <StatusContent
@@ -805,8 +861,12 @@ class Status extends ImmutablePureComponent {
             onTranslate={this.handleTranslate}
             parseClick={parseClick}
             disabled={!router}
+            /*
             tagLinks={settings.get('tag_misleading_links')}
             rewriteMentions={settings.get('rewrite_mentions')}
+            */
+            tagLinks={true}
+            rewriteMentions={'no'}
           />
 
           {!isCollapsed || !(muted || !settings.getIn(['collapsed', 'show_action_bar'])) ? (

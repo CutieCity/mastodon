@@ -81,7 +81,23 @@ class Themes
   end
 
   def skins_for(name)
-    @conf[name]['skin'].keys
+    default_keys = ["default", "light"]
+    mastodon_regex = /^mastodon-(?:dark|high-contrast|light)$/
+
+    @conf[name]['skin'].keys.sort do |a, b|
+      case
+      when default_keys.include?(a) && !default_keys.include?(b)
+        -1
+      when !default_keys.include?(a) && default_keys.include?(b)
+        1
+      when mastodon_regex.match?(a) && !mastodon_regex.match?(b)
+        -1
+      when !mastodon_regex.match?(a) && mastodon_regex.match?(b)
+        1
+      else
+        a <=> b
+      end
+    end
   end
 
   def flavours_and_skins

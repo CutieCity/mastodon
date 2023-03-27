@@ -83,7 +83,10 @@ class BoostModal extends ImmutablePureComponent {
     return (
       <div className='modal-root__modal boost-modal'>
         <div className='boost-modal__container'>
+          {/*
           <div className={classNames('status', `status-${status.get('visibility')}`, 'light')}>
+          */}
+          <div className={classNames('status', `status-${status.get('visibility')}`, { 'local-only': !!status.get('local_only') }, 'light')}>
             <div className='boost-modal__status-header'>
               <div className='boost-modal__status-time'>
                 <a href={status.get('url')} className='status__relative-time' target='_blank' rel='noopener noreferrer'>
@@ -112,7 +115,10 @@ class BoostModal extends ImmutablePureComponent {
         </div>
 
         <div className='boost-modal__action-bar'>
+          {/*
           <div>
+          */}
+          <div className={`label__${missingMediaDescription ? 'missing-desc' : 'combo'}`}>
             { missingMediaDescription ?
               <FormattedMessage id='boost_modal.missing_description' defaultMessage='This toot contains some media without description' />
               :

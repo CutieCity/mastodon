@@ -25,8 +25,19 @@ class ColumnSettings extends React.PureComponent {
       <div>
         <div className='column-settings__row'>
           <SettingToggle settings={settings} settingPath={['other', 'onlyMedia']} onChange={onChange} label={<FormattedMessage id='community.column_settings.media_only' defaultMessage='Media only' />} />
+        </div>
+        <div className='column-settings__row'>
           <SettingToggle settings={settings} settingPath={['other', 'onlyRemote']} onChange={onChange} label={<FormattedMessage id='community.column_settings.remote_only' defaultMessage='Remote only' />} />
+        </div>
+          {/*
           {!settings.getIn(['other', 'onlyRemote']) && <SettingToggle settings={settings} settingPath={['other', 'allowLocalOnly']} onChange={onChange} label={<FormattedMessage id='community.column_settings.allow_local_only' defaultMessage='Show local-only toots' />} />}
+          */}
+          {!settings.getIn(['other', 'onlyRemote']) &&
+            <div className='column-settings__row'>
+            <SettingToggle settings={settings} settingPath={['other', 'allowLocalOnly']} onChange={onChange} label={<FormattedMessage id='community.column_settings.allow_local_only' defaultMessage='Show local-only toots' />} />
+            </div>
+          }
+        {/*
         </div>
 
         <span className='column-settings__section'><FormattedMessage id='home.column_settings.advanced' defaultMessage='Advanced' /></span>
@@ -34,6 +45,7 @@ class ColumnSettings extends React.PureComponent {
         <div className='column-settings__row'>
           <SettingText settings={settings} settingPath={['regex', 'body']} onChange={onChange} label={intl.formatMessage(messages.filter_regex)} />
         </div>
+        */}
       </div>
     );
   }

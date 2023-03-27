@@ -99,11 +99,16 @@ const mapDispatchToProps = (dispatch, { intl, contextType }) => ({
     dispatch((_, getState) => {
       let state = getState();
 
+      /*
       if (state.getIn(['local_settings', 'confirm_before_clearing_draft']) && state.getIn(['compose', 'text']).trim().length !== 0) {
+      */
+      if (state.getIn(['compose', 'text']).trim().length !== 0) {
         dispatch(openModal('CONFIRM', {
           message: intl.formatMessage(messages.replyMessage),
           confirm: intl.formatMessage(messages.replyConfirm),
+          /*
           onDoNotAsk: () => dispatch(changeLocalSetting(['confirm_before_clearing_draft'], false)),
+          */
           onConfirm: () => dispatch(replyCompose(status, router)),
         }));
       } else {
@@ -123,7 +128,10 @@ const mapDispatchToProps = (dispatch, { intl, contextType }) => ({
   onReblog (status, e) {
     dispatch((_, getState) => {
       let state = getState();
+      /*
       if (state.getIn(['local_settings', 'confirm_boost_missing_media_description']) && status.get('media_attachments').some(item => !item.get('description')) && !status.get('reblogged')) {
+      */
+      if (status.get('media_attachments').some(item => !item.get('description')) && !status.get('reblogged')) {
         dispatch(initBoostModal({ status, onReblog: this.onModalReblog, missingMediaDescription: true }));
       } else if (e.shiftKey || !boostModal) {
         this.onModalReblog(status);
@@ -258,9 +266,11 @@ const mapDispatchToProps = (dispatch, { intl, contextType }) => ({
 
   deployPictureInPicture (status, type, mediaProps) {
     dispatch((_, getState) => {
+      /*
       if (getState().getIn(['local_settings', 'media', 'pop_in_player'])) {
         dispatch(deployPictureInPicture(status.get('id'), status.getIn(['account', 'id']), type, mediaProps));
       }
+      */
     });
   },
 

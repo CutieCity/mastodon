@@ -6,6 +6,7 @@ import { defineMessages, injectIntl } from 'react-intl';
 
 //  Mastodon imports.
 import IconButton from './icon_button';
+import RelativeTimestamp from './relative_timestamp';
 import VisibilityIcon from './status_visibility_icon';
 import Icon from 'flavours/glitch/components/icon';
 import { languages } from 'flavours/glitch/initial_state';
@@ -21,6 +22,7 @@ const messages = defineMessages({
   video: { id: 'status.has_video', defaultMessage: 'Features attached videos' },
   audio: { id: 'status.has_audio', defaultMessage: 'Features attached audio files' },
   localOnly: { id: 'status.local_only', defaultMessage: 'Only visible from your instance' },
+  edited: { id: 'status.edited', defaultMessage: 'Edited {date}' },
 });
 
 const LanguageIcon = ({ language }) => {
@@ -50,6 +52,7 @@ class StatusIcons extends React.PureComponent {
     setCollapsed: PropTypes.func.isRequired,
     intl: PropTypes.object.isRequired,
     settings: ImmutablePropTypes.map.isRequired,
+    parseClick: PropTypes.func.isRequired,
   };
 
   //  Handles clicks on collapsed button
@@ -100,12 +103,16 @@ class StatusIcons extends React.PureComponent {
       collapsed,
       settings,
       intl,
+      parseClick,
     } = this.props;
 
     return (
       <div className='status__info__icons'>
+        {/*
         {settings.get('language') && status.get('language') && <LanguageIcon language={status.get('language')} />}
         {settings.get('reply') && status.get('in_reply_to_id', null) !== null ? (
+        */}
+        {status.get('in_reply_to_id', null) !== null ? (
           <Icon
             className='status__reply-icon'
             fixedWidth
@@ -114,13 +121,20 @@ class StatusIcons extends React.PureComponent {
             title={intl.formatMessage(messages.inReplyTo)}
           />
         ) : null}
+        {/*
         {settings.get('local_only') && status.get('local_only') &&
+        */}
+        {status.get('local_only') &&
           <Icon
             fixedWidth
+            /*
             id='home'
+            */
+            id='users'
             aria-hidden='true'
             title={intl.formatMessage(messages.localOnly)}
           />}
+        {/*
         {settings.get('media') && !!mediaIcons && mediaIcons.map(icon => this.renderIcon(icon))}
         {settings.get('visibility') && <VisibilityIcon visibility={status.get('visibility')} />}
         {collapsible && (
@@ -137,6 +151,11 @@ class StatusIcons extends React.PureComponent {
             onClick={this.handleCollapsedClick}
           />
         )}
+        */}
+        <VisibilityIcon visibility={status.get('visibility')} />
+        <a onClick={parseClick} href={`/@${status.getIn(['account', 'acct'])}/${status.get('id')}`} className='status__relative-time' target='_blank' rel='noopener noreferrer'>
+          <RelativeTimestamp timestamp={status.get('created_at')} />{status.get('edited_at') && <abbr title={intl.formatMessage(messages.edited, { date: intl.formatDate(status.get('edited_at'), { hour12: false, year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' }) })}> *</abbr>}
+        </a>
       </div>
     );
   }

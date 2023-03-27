@@ -68,7 +68,10 @@ class KeyboardShortcuts extends ImmutablePureComponent {
                 <td><FormattedMessage id='keyboard_shortcuts.bookmark' defaultMessage='to bookmark' /></td>
               </tr>
               <tr>
+                {/*
                 <td><kbd>enter</kbd>, <kbd>o</kbd></td>
+                */}
+                <td><kbd>enter</kbd> / <kbd>o</kbd></td>
                 <td><FormattedMessage id='keyboard_shortcuts.enter' defaultMessage='to open status' /></td>
               </tr>
               <tr>
@@ -83,22 +86,33 @@ class KeyboardShortcuts extends ImmutablePureComponent {
                 <td><kbd>h</kbd></td>
                 <td><FormattedMessage id='keyboard_shortcuts.toggle_sensitivity' defaultMessage='to show/hide media' /></td>
               </tr>
+              {/*
               {collapseEnabled && (
                 <tr>
                   <td><kbd>shift</kbd>+<kbd>x</kbd></td>
                   <td><FormattedMessage id='keyboard_shortcuts.toggle_collapse' defaultMessage='to collapse/uncollapse toots' /></td>
                 </tr>
               )}
+              */}
               <tr>
+                {/*
                 <td><kbd>up</kbd>, <kbd>k</kbd></td>
+                */}
+                <td><kbd>up</kbd> / <kbd>k</kbd></td>
                 <td><FormattedMessage id='keyboard_shortcuts.up' defaultMessage='to move up in the list' /></td>
               </tr>
               <tr>
+                {/*
                 <td><kbd>down</kbd>, <kbd>j</kbd></td>
+                */}
+                <td><kbd>down</kbd> / <kbd>j</kbd></td>
                 <td><FormattedMessage id='keyboard_shortcuts.down' defaultMessage='to move down in the list' /></td>
               </tr>
               <tr>
+                {/*
                 <td><kbd>1</kbd>-<kbd>9</kbd></td>
+                */}
+                <td><kbd>1</kbd> - <kbd>9</kbd></td>
                 <td><FormattedMessage id='keyboard_shortcuts.column' defaultMessage='to focus a status in one of the columns' /></td>
               </tr>
               <tr>
@@ -106,11 +120,17 @@ class KeyboardShortcuts extends ImmutablePureComponent {
                 <td><FormattedMessage id='keyboard_shortcuts.compose' defaultMessage='to focus the compose textarea' /></td>
               </tr>
               <tr>
+                {/*
                 <td><kbd>alt</kbd>+<kbd>n</kbd></td>
+                */}
+                <td><kbd>alt</kbd> + <kbd>n</kbd></td>
                 <td><FormattedMessage id='keyboard_shortcuts.toot' defaultMessage='to start a brand new post' /></td>
               </tr>
               <tr>
+                {/*
                 <td><kbd>alt</kbd>+<kbd>x</kbd></td>
+                */}
+                <td><kbd>alt</kbd> + <kbd>x</kbd></td>
                 <td><FormattedMessage id='keyboard_shortcuts.spoilers' defaultMessage='to show/hide CW field' /></td>
               </tr>
               <tr>
@@ -121,10 +141,12 @@ class KeyboardShortcuts extends ImmutablePureComponent {
                 <td><kbd>s</kbd></td>
                 <td><FormattedMessage id='keyboard_shortcuts.search' defaultMessage='to focus search' /></td>
               </tr>
+              {/*
               <tr>
                 <td><kbd>alt</kbd>+<kbd>enter</kbd></td>
                 <td><FormattedMessage id='keyboard_shortcuts.secondary_toot' defaultMessage='to send toot using secondary privacy setting' /></td>
               </tr>
+              */}
               <tr>
                 <td><kbd>esc</kbd></td>
                 <td><FormattedMessage id='keyboard_shortcuts.unfocus' defaultMessage='to un-focus compose textarea/search' /></td>

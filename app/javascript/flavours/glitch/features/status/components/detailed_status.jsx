@@ -146,10 +146,14 @@ class DetailedStatus extends ImmutablePureComponent {
     let media = contentMedia;
     let mediaIcons = contentMediaIcons;
 
+    /*
     if (settings.getIn(['content_warnings', 'media_outside'])) {
+    */
       media = extraMedia;
       mediaIcons = extraMediaIcons;
+    /*
     }
+    */
 
     if (this.props.measureHeight) {
       outerStyle.height = `${this.state.height}px`;
@@ -194,8 +198,12 @@ class DetailedStatus extends ImmutablePureComponent {
             lang={status.get('language')}
             inline
             sensitive={status.get('sensitive')}
+            /*
             letterbox={settings.getIn(['media', 'letterbox'])}
             fullwidth={settings.getIn(['media', 'fullwidth'])}
+            */
+            letterbox={true}
+            fullwidth={false}
             preventPlayback={!expanded}
             onOpenVideo={this.handleOpenVideo}
             autoplay
@@ -211,8 +219,12 @@ class DetailedStatus extends ImmutablePureComponent {
             sensitive={status.get('sensitive')}
             media={status.get('media_attachments')}
             lang={status.get('language')}
+            /*
             letterbox={settings.getIn(['media', 'letterbox'])}
             fullwidth={settings.getIn(['media', 'fullwidth'])}
+            */
+            letterbox={true}
+            fullwidth={false}
             hidden={!expanded}
             onOpenMedia={this.props.onOpenMedia}
             visible={this.props.showMedia}
@@ -302,9 +314,14 @@ class DetailedStatus extends ImmutablePureComponent {
 
     return (
       <div style={outerStyle}>
+        {/*
         <div ref={this.setRef} className={classNames('detailed-status', `detailed-status-${status.get('visibility')}`, { compact })} data-status-by={status.getIn(['account', 'acct'])}>
           <a href={status.getIn(['account', 'url'])} onClick={this.handleAccountClick} className='detailed-status__display-name'>
             <div className='detailed-status__display-avatar'><Avatar account={status.get('account')} size={48} /></div>
+        */}
+        <div ref={this.setRef} className={classNames('detailed-status', `detailed-status-${status.get('visibility')}`, { 'local-only': !!status.get('local_only'), compact })} data-status-by={status.getIn(['account', 'acct'])}>
+          <a href={`/@${status.getIn(['account', 'acct'])}`} onClick={this.handleAccountClick} className='detailed-status__display-name'>
+            <div className='detailed-status__display-avatar'><Avatar account={status.get('account')} size={46} /></div>
             <DisplayName account={status.get('account')} localDomain={this.props.domain} />
           </a>
 
@@ -319,13 +336,20 @@ class DetailedStatus extends ImmutablePureComponent {
             onTranslate={this.handleTranslate}
             parseClick={this.parseClick}
             onUpdate={this.handleChildUpdate}
+            /*
             tagLinks={settings.get('tag_misleading_links')}
             rewriteMentions={settings.get('rewrite_mentions')}
+            */
+            tagLinks={true}
+            rewriteMentions={'no'}
             disabled
           />
 
           <div className='detailed-status__meta'>
+            {/*
             <a className='detailed-status__datetime' href={status.get('url')} target='_blank' rel='noopener noreferrer'>
+            */}
+            <a className='detailed-status__datetime' href={`/@${status.getIn(['account', 'acct'])}/${status.get('id')}`} target='_blank' rel='noopener noreferrer'>
               <FormattedDate value={new Date(status.get('created_at'))} hour12={false} year='numeric' month='short' day='2-digit' hour='2-digit' minute='2-digit' />
             </a>{edited}{visibilityLink}{applicationLink}{reblogLink} · {favouriteLink}
           </div>

@@ -184,7 +184,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :flavours, only: [:index, :show, :update], param: :flavour
+    # resources :flavours, only: [:index, :show, :update], param: :flavour
 
     resource :delete, only: [:show, :destroy]
     resource :migration, only: [:show, :create]
@@ -211,7 +211,7 @@ Rails.application.routes.draw do
 
   resources :tags,   only: [:show]
   resources :emojis, only: [:show]
-  resources :invites, only: [:index, :create, :destroy]
+  # resources :invites, only: [:index, :create, :destroy]
   resources :filters, except: [:show] do
     resources :statuses, only: [:index], controller: 'filters/statuses' do
       collection do

@@ -52,24 +52,35 @@ class Publisher extends ImmutablePureComponent {
       over: diff < 0,
     });
 
+    /*
     const privacyIcons = { direct: 'envelope', private: 'lock', public: 'globe', unlisted: 'unlock' };
+    */
+    const privacyIcons = { direct: 'at', private: 'lock', public: 'globe', unlisted: 'unlock' };
 
     let publishText;
     if (isEditing) {
       publishText = intl.formatMessage(messages.saveChanges);
+    /*
     } else if (privacy === 'private' || privacy === 'direct') {
+    */
+    } else if (privacy === 'public') {
+      publishText = intl.formatMessage(messages.publishLoud, { publish: intl.formatMessage(messages.publish) });
+    } else {
       const iconId = privacyIcons[privacy];
       publishText = (
         <span>
           <Icon id={iconId} /> {intl.formatMessage(messages.publish)}
         </span>
       );
+    /*
     } else {
       publishText = privacy !== 'unlisted' ? intl.formatMessage(messages.publishLoud, { publish: intl.formatMessage(messages.publish) }) : intl.formatMessage(messages.publish);
+    */
     }
 
     return (
       <div className={computedClass}>
+        {/*
         {sideArm && !isEditing && sideArm !== 'none' ? (
           <div className='compose-form__publish-button-wrapper'>
             <Button
@@ -82,6 +93,7 @@ class Publisher extends ImmutablePureComponent {
             />
           </div>
         ) : null}
+        */}
         <div className='compose-form__publish-button-wrapper'>
           <Button
             className='primary'

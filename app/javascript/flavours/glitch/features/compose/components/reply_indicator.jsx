@@ -4,6 +4,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { defineMessages, injectIntl } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
+import classNames from 'classnames';
 
 //  Components.
 import AccountContainer from 'flavours/glitch/containers/account_container';
@@ -43,12 +44,18 @@ class ReplyIndicator extends ImmutablePureComponent {
     }
 
     const account     = status.get('account');
+    /*
     const content     = status.get('content');
+    */
+    const content     = status.get('contentHtml');
     const attachments = status.get('media_attachments');
 
     //  The result.
     return (
+      /*
       <article className='reply-indicator'>
+      */
+      <article className={classNames('reply-indicator', { 'local-only': !!status.get('local_only') })}>
         <header className='reply-indicator__header'>
           <IconButton
             className='reply-indicator__cancel'

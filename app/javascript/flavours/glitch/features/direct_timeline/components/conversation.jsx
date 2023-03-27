@@ -149,7 +149,10 @@ class Conversation extends ImmutablePureComponent {
       return null;
     }
 
+    /*
     const isExpanded = this.props.settings.getIn(['content_warnings', 'shared_state']) ? !lastStatus.get('hidden') : this.state.isExpanded;
+    */
+    const isExpanded = !lastStatus.get('hidden');
 
     const menu = [
       { text: intl.formatMessage(messages.open), action: this.handleClick },

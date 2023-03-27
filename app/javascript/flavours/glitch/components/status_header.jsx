@@ -39,7 +39,10 @@ export default class StatusHeader extends React.PureComponent {
 
     let statusAvatar;
     if (friend === undefined || friend === null) {
+      /*
       statusAvatar = <Avatar account={account} size={48} />;
+      */
+      statusAvatar = <Avatar account={account} size={46} />;
     } else {
       statusAvatar = <AvatarOverlay account={account} friend={friend} />;
     }
@@ -47,7 +50,10 @@ export default class StatusHeader extends React.PureComponent {
     return (
       <div className='status__info__account'>
         <a
+          /*
           href={account.get('url')}
+          */
+          href={`/@${account.get('acct')}`}
           target='_blank'
           className='status__avatar'
           onClick={this.handleAccountClick}
@@ -56,7 +62,10 @@ export default class StatusHeader extends React.PureComponent {
           {statusAvatar}
         </a>
         <a
+          /*
           href={account.get('url')}
+          */
+          href={`/@${account.get('acct')}`}
           target='_blank'
           className='status__display-name'
           onClick={this.handleAccountClick}

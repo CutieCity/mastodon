@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeListEditorTitle, submitListEditor } from 'flavours/glitch/actions/lists';
+import Button from 'flavours/glitch/components/button';
 import IconButton from 'flavours/glitch/components/icon_button';
 import { defineMessages, injectIntl } from 'react-intl';
 
@@ -63,11 +64,17 @@ class NewListForm extends React.PureComponent {
           />
         </label>
 
+        {/*
         <IconButton
           disabled={disabled || !value}
           icon='plus'
           title={title}
           onClick={this.handleClick}
+        />
+        */}
+        <Button
+          disabled={disabled || !value}
+          text={title}
         />
       </form>
     );

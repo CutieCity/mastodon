@@ -24,6 +24,7 @@ import NavigationPanel from './navigation_panel';
 
 import { supportsPassiveEvents } from 'detect-passive-events';
 import { scrollRight } from 'flavours/glitch/scroll';
+import classNames from 'classnames';
 
 const componentMap = {
   'COMPOSE': Compose,
@@ -141,7 +142,10 @@ export default class ColumnsArea extends ImmutablePureComponent {
 
     if (singleColumn) {
       return (
+        /*
         <div className='columns-area__panels'>
+        */
+        <div className={classNames('columns-area__panels', { 'about-page': window.location.pathname.endsWith('/about') })}>
           <div className='columns-area__panels__pane columns-area__panels__pane--compositional'>
             <div className='columns-area__panels__pane__inner'>
               {renderComposePanel && <ComposePanel />}

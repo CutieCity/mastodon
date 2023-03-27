@@ -62,7 +62,7 @@ module ThemingConcern
     pack_data
   end
 
-  def resolve_pack(data, pack_name, skin)
+  def resolve_pack(data, pack_name, skin = 'default')
     return pack(data, pack_name, skin) if valid_pack_data?(data, pack_name)
     return if data['name'].blank?
 

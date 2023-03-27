@@ -23,17 +23,21 @@ class ColumnSettings extends React.PureComponent {
 
     return (
       <div>
+        {/*
         <span className='column-settings__section'><FormattedMessage id='home.column_settings.basic' defaultMessage='Basic' /></span>
+        */}
 
         <div className='column-settings__row'>
           <SettingToggle settings={settings} settingPath={['conversations']} onChange={onChange} label={<FormattedMessage id='direct.group_by_conversations' defaultMessage='Group by conversation' />} />
         </div>
 
+        {/*
         <span className='column-settings__section'><FormattedMessage id='home.column_settings.advanced' defaultMessage='Advanced' /></span>
 
         <div className='column-settings__row'>
           <SettingText settings={settings} settingPath={['regex', 'body']} onChange={onChange} label={intl.formatMessage(messages.filter_regex)} />
         </div>
+        */}
       </div>
     );
   }

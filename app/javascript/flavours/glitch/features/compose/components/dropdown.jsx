@@ -191,7 +191,10 @@ export default class ComposerOptionsDropdown extends React.PureComponent {
         onKeyDown={this.handleKeyDown}
         ref={this.setTargetRef}
       >
+        {/*
         <div className={classNames('privacy-dropdown__value', { active })}>
+        */}
+        <div className='privacy-dropdown__value'>
           <IconButton
             active={open}
             className='privacy-dropdown__value-icon'

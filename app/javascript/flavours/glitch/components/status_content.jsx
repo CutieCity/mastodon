@@ -185,15 +185,23 @@ class StatusContent extends React.PureComponent {
             tag.classList.add('link-origin-tag');
             switch (url.protocol) {
             case 'xmpp:':
+              /*
               tag.textContent = `[${url.href}]`;
+              */
+              tag.textContent = `${url.href}`;
               break;
             case 'magnet:':
               tag.textContent = '(magnet)';
               break;
             default:
+              /*
               tag.textContent = `[${url.host}]`;
+              */
+              tag.textContent = `${url.host}`;
             }
+            /*
             link.insertAdjacentText('beforeend', ' ');
+            */
             link.insertAdjacentElement('beforeend', tag);
           }
         } catch (e) {

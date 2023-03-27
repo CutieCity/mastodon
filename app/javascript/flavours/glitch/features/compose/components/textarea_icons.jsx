@@ -23,7 +23,10 @@ const messages = defineMessages({
 //  We use an array of tuples here instead of an object because it
 //  preserves order.
 const iconMap = [
+  /*
   ['do_not_federate', 'home', messages.localOnly],
+  */
+  ['do_not_federate', 'users', messages.localOnly],
   ['threaded_mode', 'comments', messages.threadedMode],
 ];
 

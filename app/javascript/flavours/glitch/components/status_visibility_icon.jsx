@@ -6,10 +6,16 @@ import ImmutablePureComponent from 'react-immutable-pure-component';
 import Icon from 'flavours/glitch/components/icon';
 
 const messages = defineMessages({
+  /*
   public: { id: 'privacy.public.short', defaultMessage: 'Public' },
   unlisted: { id: 'privacy.unlisted.short', defaultMessage: 'Unlisted' },
   private: { id: 'privacy.private.short', defaultMessage: 'Followers-only' },
   direct: { id: 'privacy.direct.short', defaultMessage: 'Mentioned people only' },
+  */
+  public: { id: 'privacy.public.long', defaultMessage: 'Visible for all' },
+  unlisted: { id: 'privacy.unlisted.long', defaultMessage: 'Visible for all, but opted-out of discovery features' },
+  private: { id: 'privacy.private.long', defaultMessage: 'Visible for followers only' },
+  direct: { id: 'privacy.direct.long', defaultMessage: 'Visible for mentioned users only' },
 });
 
 class VisibilityIcon extends ImmutablePureComponent {
@@ -27,7 +33,10 @@ class VisibilityIcon extends ImmutablePureComponent {
       public: 'globe',
       unlisted: 'unlock',
       private: 'lock',
+      /*
       direct: 'envelope',
+      */
+      direct: 'at',
     }[visibility];
 
     const label = intl.formatMessage(messages[visibility]);
@@ -37,6 +46,7 @@ class VisibilityIcon extends ImmutablePureComponent {
       fixedWidth
       id={visibilityIcon}
       title={label}
+    /*
       aria-hidden='true'
     />);
 
@@ -45,6 +55,10 @@ class VisibilityIcon extends ImmutablePureComponent {
     } else {
       return icon;
     }
+    */
+    />);
+
+    return icon;
   }
 
 }

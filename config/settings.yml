@@ -2,13 +2,13 @@
 # important settings can be changed from the admin interface.
 
 defaults: &defaults
-  site_title: 'Mastodon Glitch Edition'
+  site_title: 'Mastodon'
   site_short_description: ''
   site_description: ''
   site_extended_description: ''
   site_terms: ''
-  site_contact_username: ''
-  site_contact_email: ''
+  site_contact_username: 'admin'
+  site_contact_email: 'admin@localhost'
   registrations_mode: 'open'
   profile_directory: true
   closed_registrations_message: ''
@@ -17,42 +17,42 @@ defaults: &defaults
   min_invite_role: 'admin'
   show_staff_badge: true
   default_sensitive: false
-  unfollow_modal: false
+  unfollow_modal: true
   boost_modal: false
   favourite_modal: false
   delete_modal: true
-  auto_play_gif: false
+  auto_play_gif: true
   display_media: 'default'
   expand_spoilers: false
   preview_sensitive_media: false
   reduce_motion: false
   disable_swiping: false
-  show_application: false
+  show_application: true
   system_font_ui: false
   system_emoji_font: false
   noindex: false
   hide_followers_count: false
-  flavour: 'glitch'
+  flavour: 'cutiecity'
   skin: 'default'
   aggregate_reblogs: true
   advanced_layout: false
   use_blurhash: true
-  use_pending_items: false
+  use_pending_items: true
   trends: true
-  trends_as_landing_page: true
+  trends_as_landing_page: false
   trendable_by_default: false
   trending_status_cw: true
   crop_images: true
   notification_emails:
-    follow: true
+    follow: false
     reblog: false
     favourite: false
     mention: true
-    follow_request: true
+    follow_request: false
     digest: true
     report: true
     pending_account: true
-    trending_tag: true
+    trending_tag: false
     trending_link: false
     trending_status: false
     appeal: true

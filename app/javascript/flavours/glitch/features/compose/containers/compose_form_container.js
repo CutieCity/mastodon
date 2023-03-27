@@ -37,7 +37,11 @@ const messages = defineMessages({
 
 //  State mapping.
 function mapStateToProps (state) {
+  /*
   const spoilersAlwaysOn = state.getIn(['local_settings', 'always_show_spoilers_field']);
+  */
+  const spoilersAlwaysOn = false;
+  /*
   const inReplyTo = state.getIn(['compose', 'in_reply_to']);
   const replyPrivacy = inReplyTo ? state.getIn(['statuses', inReplyTo, 'visibility']) : null;
   const sideArmBasePrivacy = state.getIn(['local_settings', 'side_arm']);
@@ -52,6 +56,7 @@ function mapStateToProps (state) {
     break;
   }
   sideArmPrivacy = sideArmPrivacy || sideArmBasePrivacy;
+  */
   return {
     advancedOptions: state.getIn(['compose', 'advanced_options']),
     focusDate: state.getIn(['compose', 'focusDate']),
@@ -60,11 +65,17 @@ function mapStateToProps (state) {
     isEditing: state.getIn(['compose', 'id']) !== null,
     isChangingUpload: state.getIn(['compose', 'is_changing_upload']),
     isUploading: state.getIn(['compose', 'is_uploading']),
+    /*
     layout: state.getIn(['local_settings', 'layout']),
+    */
+    layout: 'auto',
     media: state.getIn(['compose', 'media_attachments']),
     preselectDate: state.getIn(['compose', 'preselectDate']),
     privacy: state.getIn(['compose', 'privacy']),
+    /*
     sideArm: sideArmPrivacy,
+    */
+    sideArm: 'none',
     sensitive: state.getIn(['compose', 'sensitive']),
     showSearch: state.getIn(['search', 'submitted']) && !state.getIn(['search', 'hidden']),
     spoiler: spoilersAlwaysOn || state.getIn(['compose', 'spoiler']),
@@ -73,8 +84,12 @@ function mapStateToProps (state) {
     text: state.getIn(['compose', 'text']),
     anyMedia: state.getIn(['compose', 'media_attachments']).size > 0,
     spoilersAlwaysOn: spoilersAlwaysOn,
+    /*
     mediaDescriptionConfirmation: state.getIn(['local_settings', 'confirm_missing_media_description']),
     preselectOnReply: state.getIn(['local_settings', 'preselect_on_reply']),
+    */
+    mediaDescriptionConfirmation: true,
+    preselectOnReply: true,
     isInReply: state.getIn(['compose', 'in_reply_to']) !== null,
     lang: state.getIn(['compose', 'language']),
   };
@@ -135,7 +150,9 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
       },
       secondary: intl.formatMessage(messages.missingDescriptionEdit),
       onSecondary: () => dispatch(openModal('FOCAL_POINT', { id: mediaId })),
+      /*
       onDoNotAsk: () => dispatch(changeLocalSetting(['confirm_missing_media_description'], false)),
+      */
     }));
   },
 

@@ -6,7 +6,9 @@ import DropdownMenuContainer from 'flavours/glitch/containers/dropdown_menu_cont
 import { defineMessages, injectIntl } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import { me } from 'flavours/glitch/initial_state';
+/*
 import RelativeTimestamp from './relative_timestamp';
+*/
 import { accountAdminLink, statusAdminLink } from 'flavours/glitch/utils/backend_links';
 import classNames from 'classnames';
 import { PERMISSION_MANAGE_USERS, PERMISSION_MANAGE_FEDERATION } from 'flavours/glitch/permissions';
@@ -306,13 +308,22 @@ class StatusActionBar extends ImmutablePureComponent {
           title={replyTitle}
           icon={replyIcon}
           onClick={this.handleReplyClick}
+          /*
           counter={showReplyCount ? status.get('replies_count') : undefined}
+          */
+          counter={status.get('replies_count')}
           obfuscateCount
         />
+        {/*
         <IconButton className={classNames('status__action-bar-button', { reblogPrivate })} disabled={!publicStatus && !reblogPrivate} active={status.get('reblogged')} title={reblogTitle} icon={reblogIcon} onClick={this.handleReblogClick} counter={withCounters ? status.get('reblogs_count') : undefined} />
+        */}
+        <IconButton className={classNames('status__action-bar-button boost-icon', { reblogPrivate })} disabled={!publicStatus && !reblogPrivate} active={status.get('reblogged')} title={reblogTitle} icon={reblogIcon} onClick={this.handleReblogClick} counter={withCounters ? status.get('reblogs_count') : undefined} />
         <IconButton className='status__action-bar-button star-icon' animate active={status.get('favourited')} title={intl.formatMessage(messages.favourite)} icon='star' onClick={this.handleFavouriteClick} counter={withCounters ? status.get('favourites_count') : undefined} />
+        {/*
         {shareButton}
+        */}
         <IconButton className='status__action-bar-button bookmark-icon' disabled={anonymousAccess} active={status.get('bookmarked')} title={intl.formatMessage(messages.bookmark)} icon='bookmark' onClick={this.handleBookmarkClick} />
+        {shareButton}
 
         {filterButton}
 
@@ -329,10 +340,12 @@ class StatusActionBar extends ImmutablePureComponent {
           />
         </div>
 
+        {/*
         <div className='status__action-bar-spacer' />
         <a href={status.get('url')} className='status__relative-time' target='_blank' rel='noopener'>
           <RelativeTimestamp timestamp={status.get('created_at')} />{status.get('edited_at') && <abbr title={intl.formatMessage(messages.edited, { date: intl.formatDate(status.get('edited_at'), { hour12: false, year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' }) })}> *</abbr>}
         </a>
+        */}
       </div>
     );
   }

@@ -100,7 +100,14 @@ class ComposeForm extends ImmutablePureComponent {
     const { isSubmitting, isChangingUpload, isUploading, anyMedia } = this.props;
     const fulltext = this.getFulltextForCharacterCounting();
 
+    const isLocalOnly = this.props.advancedOptions && this.props.advancedOptions.get('do_not_federate');
+    const isTextEmpty = isLocalOnly ? fulltext === ' 👁️' : !fulltext.trim().length;
+
+    /*
     return !(isSubmitting || isUploading || isChangingUpload || length(fulltext) > maxChars || (!fulltext.trim().length && !anyMedia));
+    */
+
+    return !(isSubmitting || isUploading || isChangingUpload || length(fulltext) > maxChars || (isTextEmpty && !anyMedia));
   };
 
   handleSubmit = (overriddenVisibility = null) => {

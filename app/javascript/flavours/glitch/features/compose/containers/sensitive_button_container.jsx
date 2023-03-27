@@ -17,7 +17,10 @@ const messages = defineMessages({
 });
 
 const mapStateToProps = state => {
+  /*
   const spoilersAlwaysOn = state.getIn(['local_settings', 'always_show_spoilers_field']);
+  */
+  const spoilersAlwaysOn = false;
   const spoilerText = state.getIn(['compose', 'spoiler_text']);
   return {
     active: state.getIn(['compose', 'sensitive']) || (spoilersAlwaysOn && spoilerText && spoilerText.length > 0),

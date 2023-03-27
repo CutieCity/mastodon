@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { fetchLists } from 'flavours/glitch/actions/lists';
 import ColumnBackButtonSlim from 'flavours/glitch/components/column_back_button_slim';
+import ColumnHeader from 'flavours/glitch/components/column_header';
 import LoadingIndicator from 'flavours/glitch/components/loading_indicator';
 import ScrollableList from 'flavours/glitch/components/scrollable_list';
 import Column from 'flavours/glitch/features/ui/components/column';
@@ -60,15 +61,22 @@ class Lists extends ImmutablePureComponent {
     const emptyMessage = <FormattedMessage id='empty_column.lists' defaultMessage="You don't have any lists yet. When you create one, it will show up here." />;
 
     return (
+      /*
       <Column bindToDocument={!multiColumn} icon='bars' heading={intl.formatMessage(messages.heading)}>
         <ColumnBackButtonSlim />
+      */
+      <Column bindToDocument={!multiColumn} label={intl.formatMessage(messages.heading)}>
+        <ColumnHeader title={intl.formatMessage(messages.heading)} icon='list-ul' multiColumn={multiColumn} showBackButton />
 
         <NewListForm />
 
+        {/*
         <ColumnSubheading text={intl.formatMessage(messages.subheading)} />
+        */}
         <ScrollableList
           scrollKey='lists'
           emptyMessage={emptyMessage}
+          prepend={<ColumnSubheading text={intl.formatMessage(messages.subheading)} />}
           bindToDocument={!multiColumn}
         >
           {lists.map(list =>

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { defineMessages, injectIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
+import Logo from 'flavours/glitch/components/logo';
 import { timelinePreview, showTrends } from 'flavours/glitch/initial_state';
 import ColumnLink from 'flavours/glitch/features/ui/components/column_link';
 import DisabledAccountBanner from './disabled_account_banner';
@@ -46,6 +47,11 @@ class NavigationPanel extends React.Component {
 
     return (
       <div className='navigation-panel'>
+        <div className='navigation-panel__logo'>
+          <Link to='/' className='column-link column-link--logo'><Logo /></Link>
+          <hr />
+        </div>
+
         {signedIn && (
           <React.Fragment>
             <ColumnLink transparent to='/home' icon='home' text={intl.formatMessage(messages.home)} />
@@ -77,8 +83,11 @@ class NavigationPanel extends React.Component {
         {signedIn && (
           <React.Fragment>
             <ColumnLink transparent to='/conversations' icon='at' text={intl.formatMessage(messages.direct)} />
+            {/*
             <ColumnLink transparent to='/bookmarks' icon='bookmark' text={intl.formatMessage(messages.bookmarks)} />
+            */}
             <ColumnLink transparent to='/favourites' icon='star' text={intl.formatMessage(messages.favourites)} />
+            <ColumnLink transparent to='/bookmarks' icon='bookmark' text={intl.formatMessage(messages.bookmarks)} />
             <ColumnLink transparent to='/lists' icon='list-ul' text={intl.formatMessage(messages.lists)} />
 
             <ListPanel />
@@ -86,7 +95,9 @@ class NavigationPanel extends React.Component {
             <hr />
 
             {!!preferencesLink && <ColumnLink transparent href={preferencesLink} icon='cog' text={intl.formatMessage(messages.preferences)} />}
+            {/*
             <ColumnLink transparent onClick={onOpenSettings} icon='cogs' text={intl.formatMessage(messages.app_settings)} />
+            */}
           </React.Fragment>
         )}
 

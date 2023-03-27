@@ -1006,7 +1006,7 @@ en:
       saml: SAML
     register: Sign up
     registration_closed: "%{instance} is not accepting new members"
-    resend_confirmation: Resend confirmation instructions
+    resend_confirmation: Resend confirmation
     reset_password: Reset password
     rules:
       accept: Accept
@@ -1024,7 +1024,7 @@ en:
       title: Sign in to %{domain}
     sign_up:
       preamble: With an account on this Mastodon server, you'll be able to follow any other person on the network, regardless of where their account is hosted.
-      title: Let's get you set up on %{domain}.
+      title: Let's get you set up on %{domain}!
     status:
       account_status: Account status
       confirming: Waiting for e-mail confirmation to be completed.

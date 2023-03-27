@@ -145,7 +145,10 @@ const makeMapStateToProps = () => {
       ancestorsIds,
       descendantsIds,
       settings: state.get('local_settings'),
+      /*
       askReplyConfirmation: state.getIn(['local_settings', 'confirm_before_clearing_draft']) && state.getIn(['compose', 'text']).trim().length !== 0,
+      */
+      askReplyConfirmation: state.getIn(['compose', 'text']).trim().length !== 0,
       domain: state.getIn(['meta', 'domain']),
       pictureInPicture: getPictureInPicture(state, { id: props.params.statusId }),
     };
@@ -232,7 +235,10 @@ class Status extends ImmutablePureComponent {
       updated = true;
     }
 
+    /*
     const revealBehindCW = props.settings.getIn(['media', 'reveal_behind_cw']);
+    */
+    const revealBehindCW = false;
     if (revealBehindCW !== state.revealBehindCW) {
       update.revealBehindCW = revealBehindCW;
       if (revealBehindCW) update.showMedia = defaultMediaVisibility(props.status, props.settings);
@@ -252,15 +258,19 @@ class Status extends ImmutablePureComponent {
   handleToggleHidden = () => {
     const { status } = this.props;
 
+    /*
     if (this.props.settings.getIn(['content_warnings', 'shared_state'])) {
+    */
       if (status.get('hidden')) {
         this.props.dispatch(revealStatus(status.get('id')));
       } else {
         this.props.dispatch(hideStatus(status.get('id')));
       }
+    /*
     } else if (this.props.status.get('spoiler_text')) {
       this.setExpansion(!this.state.isExpanded);
     }
+    */
   };
 
   handleToggleMediaVisibility = () => {
@@ -311,7 +321,9 @@ class Status extends ImmutablePureComponent {
         dispatch(openModal('CONFIRM', {
           message: intl.formatMessage(messages.replyMessage),
           confirm: intl.formatMessage(messages.replyConfirm),
+          /*
           onDoNotAsk: () => dispatch(changeLocalSetting(['confirm_before_clearing_draft'], false)),
+          */
           onConfirm: () => dispatch(replyCompose(status, this.context.router.history)),
         }));
       } else {
@@ -341,7 +353,10 @@ class Status extends ImmutablePureComponent {
     const { signedIn } = this.context.identity;
 
     if (signedIn) {
+      /*
       if (settings.get('confirm_boost_missing_media_description') && status.get('media_attachments').some(item => !item.get('description')) && !status.get('reblogged')) {
+      */
+      if (status.get('media_attachments').some(item => !item.get('description')) && !status.get('reblogged')) {
         dispatch(initBoostModal({ status, onReblog: this.handleModalReblog, missingMediaDescription: true }));
       } else if ((e && e.shiftKey) || !boostModal) {
         this.handleModalReblog(status);
@@ -430,7 +445,9 @@ class Status extends ImmutablePureComponent {
     const statusIds = [status.get('id')].concat(ancestorsIds.toJS(), descendantsIds.toJS());
     let { isExpanded } = this.state;
 
+    /*
     if (settings.getIn(['content_warnings', 'shared_state']))
+    */
       isExpanded = !status.get('hidden');
 
     if (!isExpanded) {
@@ -627,7 +644,10 @@ class Status extends ImmutablePureComponent {
       );
     }
 
+    /*
     const isExpanded = settings.getIn(['content_warnings', 'shared_state']) ? !status.get('hidden') : this.state.isExpanded;
+    */
+    const isExpanded = !status.get('hidden');
 
     if (ancestorsIds && ancestorsIds.size > 0) {
       ancestors = <div>{this.renderChildren(ancestorsIds)}</div>;
@@ -657,9 +677,11 @@ class Status extends ImmutablePureComponent {
     return (
       <Column bindToDocument={!multiColumn} ref={this.setColumnRef} label={intl.formatMessage(messages.detailedStatus)}>
         <ColumnHeader
+          /*
           icon='comment'
           title={intl.formatMessage(messages.tootHeading)}
           onClick={this.handleHeaderClick}
+          */
           showBackButton
           multiColumn={multiColumn}
           extraButton={(

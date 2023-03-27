@@ -3,9 +3,9 @@ en:
   simple_form:
     hints:
       account_alias:
-        acct: Specify the username@domain of the account you want to move from
+        acct: 'Specify the username@domain of the account you want to move from:'
       account_migration:
-        acct: Specify the username@domain of the account you want to move to
+        acct: 'Specify the username@domain of the account you want to move to:'
       account_warning_preset:
         text: You can use post syntax, such as URLs, hashtags and mentions
         title: Optional. Not visible to the recipient
@@ -31,34 +31,34 @@ en:
         text: You can only appeal a strike once
       defaults:
         autofollow: People who sign up through the invite will automatically follow you
-        avatar: PNG, GIF or JPG. At most %{size}. Will be downscaled to %{dimensions}px
-        bot: Signal to others that the account mainly performs automated actions and might not be monitored
-        context: One or multiple contexts where the filter should apply
-        current_password: For security purposes please enter the password of the current account
-        current_username: To confirm, please enter the username of the current account
+        avatar: PNG, GIF or JPG. At most %{size}. Will be downscaled to %{dimensions}px.
+        bot: Signal to others that this account mainly performs automated actions and might not be monitored.
+        context: 'Select one or more contexts in which this filter should apply:'
+        current_password: 'For security purposes, please enter the password of the current account:'
+        current_username: 'To confirm, please enter the username of the current account:'
         digest: Only sent after a long period of inactivity and only if you have received any personal messages in your absence
-        discoverable: Allow your account to be discovered by strangers through recommendations, trends and other features
-        email: You will be sent a confirmation e-mail
+        discoverable: Allow your account to be discovered by strangers through recommendations, trends and other features.
+        email: You will be sent a confirmation e-mail.
         fields: You can have up to 4 items displayed as a table on your profile
-        header: PNG, GIF or JPG. At most %{size}. Will be downscaled to %{dimensions}px
+        header: PNG, GIF or JPG. At most %{size}. Will be downscaled to %{dimensions}px.
         inbox_url: Copy the URL from the frontpage of the relay you want to use
         irreversible: Filtered posts will disappear irreversibly, even if filter is later removed
         locale: The language of the user interface, e-mails and push notifications
-        locked: Manually control who can follow you by approving follow requests
-        password: Use at least 8 characters
+        locked: Manually control who can follow you by approving (and/or denying) individual follow requests.
+        password: Use at least 8 characters.
         phrase: Will be matched regardless of casing in text or content warning of a post
         scopes: Which APIs the application will be allowed to access. If you select a top-level scope, you don't need to select individual ones.
-        setting_aggregate_reblogs: Do not show new boosts for posts that have been recently boosted (only affects newly-received boosts)
-        setting_always_send_emails: Normally e-mail notifications won't be sent when you are actively using Mastodon
-        setting_default_sensitive: Sensitive media is hidden by default and can be revealed with a click
+        setting_aggregate_reblogs: Do not show new boosts for posts that have been recently boosted (only affects newly-received boosts).
+        setting_always_send_emails: Normally, e-mail notifications won't be sent while you are actively using Mastodon.
+        setting_default_sensitive: Sensitive media is hidden by default, and can be revealed with a click.
         setting_display_media_default: Hide media marked as sensitive
         setting_display_media_hide_all: Always hide media
         setting_display_media_show_all: Always show media
-        setting_hide_network: Who you follow and who follows you will be hidden on your profile
-        setting_noindex: Affects your public profile and post pages
-        setting_show_application: The application you use to post will be displayed in the detailed view of your posts
-        setting_use_blurhash: Gradients are based on the colors of the hidden visuals but obfuscate any details
-        setting_use_pending_items: Hide timeline updates behind a click instead of automatically scrolling the feed
+        setting_hide_network: Prevent the accounts you follow and the accounts that follow you from being displayed on your profile.
+        setting_noindex: This affects your public profile and post pages. Unfortunately, not all indexers will respect this choice.
+        setting_show_application: The application you posted with will be displayed in the detailed view of your post.
+        setting_use_blurhash: Gradients are based on the colors of the hidden visuals, but they obfuscate all the details.
+        setting_use_pending_items: Hide timeline updates behind a click instead of automatically scrolling the feed.
         username: Your username will be unique on %{domain}
         whole_word: When the keyword or phrase is alphanumeric only, it will only be applied if it matches the whole word
       domain_allow:
@@ -67,12 +67,12 @@ en:
         domain: This can be the domain name that shows up in the e-mail address or the MX record it uses. They will be checked upon sign-up.
         with_dns_records: An attempt to resolve the given domain's DNS records will be made and the results will also be blocked
       featured_tag:
-        name: 'Here are some of the hashtags you used the most recently:'
+        name: "Here are some of the hashtags you've used recently:"
       filters:
-        action: Chose which action to perform when a post matches the filter
+        action: 'Choose which action to take when a post matches this filter:'
         actions:
-          hide: Completely hide the filtered content, behaving as if it did not exist
-          warn: Hide the filtered content behind a warning mentioning the filter's title
+          hide: Completely hide the filtered content, behaving as if it did not exist.
+          warn: Hide the filtered content behind a warning mentioning the title of this filter.
       form_admin_settings:
         activity_api_enabled: Counts of locally published posts, active users, and new registrations in weekly buckets
         backups_retention_period: Keep generated user archives for the specified number of days.
@@ -99,11 +99,11 @@ en:
         trends: Trends show which posts, hashtags and news stories are gaining traction on your server.
         trends_as_landing_page: Show trending content to logged-out users and visitors instead of a description of this server. Requires trends to be enabled.
       form_challenge:
-        current_password: You are entering a secure area
+        current_password: You are entering a secure area.
       imports:
         data: CSV file exported from another Mastodon server
       invite_request:
-        text: This will help us review your application
+        text: <strong>Hint:</strong> If you aren't sure what to put here, check the <a href="/about">About</a> page.
       ip_block:
         comment: Optional. Remember why you added this rule.
         expires_in: IP addresses are a finite resource, they are sometimes shared and often change hands. For this reason, indefinite IP blocks are not recommended.
@@ -121,7 +121,7 @@ en:
       tag:
         name: You can only change the casing of the letters, for example, to make it more readable
       user:
-        chosen_languages: When checked, only posts in selected languages will be displayed in public timelines
+        chosen_languages: 'If you select one or more languages here, then only posts in those languages will be shown to you in public timelines:'
         role: The role controls which permissions the user has
       user_role:
         color: Color to be used for the role throughout the UI, as RGB in hex format
@@ -195,12 +195,12 @@ en:
         setting_aggregate_reblogs: Group boosts in timelines
         setting_always_send_emails: Always send e-mail notifications
         setting_auto_play_gif: Auto-play animated GIFs
-        setting_boost_modal: Show confirmation dialog before boosting
+        setting_boost_modal: Ask for confirmation before boosting a post
         setting_crop_images: Crop images in non-expanded posts to 16x9
         setting_default_language: Posting language
         setting_default_privacy: Posting privacy
         setting_default_sensitive: Always mark media as sensitive
-        setting_delete_modal: Show confirmation dialog before deleting a post
+        setting_delete_modal: Ask for confirmation before deleting a post
         setting_disable_swiping: Disable swiping motions
         setting_display_media: Media display
         setting_display_media_default: Default
@@ -214,7 +214,7 @@ en:
         setting_system_font_ui: Use system's default font
         setting_theme: Site theme
         setting_trends: Show today's trends
-        setting_unfollow_modal: Show confirmation dialog before unfollowing someone
+        setting_unfollow_modal: Ask for confirmation before unfollowing someone
         setting_use_blurhash: Show colorful gradients for hidden media
         setting_use_pending_items: Slow mode
         severity: Severity
@@ -261,13 +261,13 @@ en:
         trends: Enable trends
         trends_as_landing_page: Use trends as the landing page
       interactions:
-        must_be_follower: Block notifications from non-followers
+        must_be_follower: Block notifications from people who don't follow you
         must_be_following: Block notifications from people you don't follow
         must_be_following_dm: Block direct messages from people you don't follow
       invite:
         comment: Comment
       invite_request:
-        text: Why do you want to join?
+        text: Additional information
       ip_block:
         comment: Comment
         ip: IP

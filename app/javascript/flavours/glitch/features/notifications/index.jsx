@@ -305,6 +305,7 @@ class Notifications extends React.PureComponent {
       );
     }
 
+    /*
     const notifCleaningButtonClassName = classNames('column-header__button', {
       'active': notifCleaningActive,
     });
@@ -335,6 +336,7 @@ class Notifications extends React.PureComponent {
         </div>
       </div>
     );
+    */
 
     const extraButton = (
       <>
@@ -347,7 +349,9 @@ class Notifications extends React.PureComponent {
         bindToDocument={!multiColumn}
         ref={this.setColumnRef}
         name='notifications'
+        /*
         extraClasses={this.props.notifCleaningActive ? 'notif-cleaning' : null}
+        */
         label={intl.formatMessage(messages.title)}
       >
         <ColumnHeader
@@ -361,7 +365,9 @@ class Notifications extends React.PureComponent {
           multiColumn={multiColumn}
           localSettings={this.props.localSettings}
           extraButton={extraButton}
+          /*
           appendContent={notifCleaningDrawer}
+          */
         >
           <ColumnSettingsContainer />
         </ColumnHeader>

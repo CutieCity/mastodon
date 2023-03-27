@@ -37,7 +37,10 @@ class PrivacyDropdown extends React.PureComponent {
     //  dropdown icon later.
     const privacyItems = {
       direct: {
+        /*
         icon: 'envelope',
+        */
+        icon: 'at',
         meta: formatMessage(messages.direct_long),
         name: 'direct',
         text: formatMessage(messages.direct_short),
