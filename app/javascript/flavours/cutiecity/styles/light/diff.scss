@@ -1,0 +1,167 @@
+.about__meta,
+.about__section__title {
+  background: darken($ui-base-color, 4%);
+}
+
+.account {
+  &__action-bar {
+    background: darken($ui-base-color, 8%);
+  }
+
+  &__header__bar {
+    background: $white;
+  }
+}
+
+.column > .scrollable.privacy-policy,
+.list-editor > .column-inline-form {
+  border-top: 1px solid lighten($ui-base-color, 8%);
+}
+
+.column-header {
+  &, &__button, &__back-button, &__button.follow-hashtag.active {
+    background: darken($ui-base-color, 4%);
+  }
+
+  &__button.follow-hashtag.active {
+    color: lighten($ui-highlight-color, 4%);
+  }
+
+  &__buttons > .column-header__button:not(.follow-hashtag) {
+    border-left: 1px solid darken($ui-base-color, 4%);
+
+    &.active {
+      &, &:hover, &:active, &:focus {
+        background: $ui-base-color;
+        color: lighten($ui-highlight-color, 4%);
+      }
+
+      &, & ~ button {
+        border-left: 1px solid lighten($ui-base-color, 8%);
+      }
+    }
+  }
+
+  &__collapsible {
+    scrollbar-color: rgba($ui-highlight-color, 0.25) $ui-base-color;
+    border: 1px solid lighten($ui-base-color, 8%);
+    border-top: 0;
+
+    &.collapsed {
+      border-bottom: 0;
+    }
+
+    &-inner {
+      border: 0;
+    }
+  }
+}
+
+.column-header__collapsible-inner,
+.columns-area .filter-form,
+.columns-area .status.status-direct,
+.reply-indicator,
+.scrollable .account-card {
+  background: $ui-base-color;
+}
+
+.columns-area,
+.notification {
+  .notification__message a {
+    color: $primary-text-color;
+  }
+}
+
+.columns-area .status .status__info .status__info__icons {
+  .fa-comment, .fa-users {
+    color: lighten($action-button-color, 10%);
+  }
+}
+
+.column-inline-form .button:disabled {
+  background-color: darken($ui-highlight-color, 10%);
+}
+
+.compose-form {
+  &__publish.disabled button:disabled {
+    background-color: darken($ui-highlight-color, 10%);
+  }
+
+  &__sensitive-button {
+    .checkbox {
+      border-color: $dark-text-color;
+    }
+
+    .icon-button span {
+      color: $dark-text-color;
+    }
+
+    .icon-button.active span {
+      color: $highlight-text-color;
+    }
+  }
+}
+
+.pillbar-button {
+  &:not([disabled], .active) {
+    &:hover, &:focus {
+      background-color: darken($ui-secondary-color, 8%);
+    }
+  }
+
+  &:not([disabled]).active {
+    &:hover, &:focus {
+      background-color: lighten($ui-highlight-color, 2%);
+    }
+  }
+}
+
+.privacy-dropdown__option .react-toggle {
+  &--checked,
+  &--checked:is(:hover, :focus-within):not(.react-toggle--disabled),
+  &.react-toggle--checked:hover:not(.react-toggle--disabled) {
+    .react-toggle-track {
+      background-color: darken($ui-highlight-color, 10%);
+    }
+
+    .react-toggle-thumb {
+      border-color: darken($ui-highlight-color, 10%);
+    }
+  }
+}
+
+.radio-button__input {
+  border-color: $ui-highlight-color;
+}
+
+.react-toggle {
+  .react-toggle-thumb {
+    border-color: $ui-secondary-color;
+  }
+
+  &:is(:hover, :focus-within):not(.react-toggle--disabled) .react-toggle-track {
+    background: $ui-secondary-color;
+  }
+
+  &--checked,
+  &--checked:is(:hover, :focus-within):not(.react-toggle--disabled),
+  &.react-toggle--checked:hover:not(.react-toggle--disabled) {
+    .react-toggle-track {
+      background-color: $ui-highlight-color;
+    }
+
+    .react-toggle-thumb {
+      border-color: $ui-highlight-color;
+    }
+  }
+}
+
+.scrollable .account-card {
+  &__bio::after {
+    background: linear-gradient(to left, $ui-base-color, transparent);
+  }
+
+  &__title__avatar .account__avatar {
+    border: 1px solid $ui-base-color;
+  }
+}

@@ -1,0 +1,5 @@
+@import 'flavours/glitch/styles/variables';
+
+$boost-highlight-color: lighten($ui-highlight-color, 4%);
+
+@import 'flavours/cutiecity/styles/index';

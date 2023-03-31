@@ -1,0 +1,29 @@
+$classic-base-color: #383144;
+$classic-primary-color: #e6e6fa;
+$classic-secondary-color: #dbd8eb;
+$classic-highlight-color: #d48393;
+
+$dark-text-color: #ae9aba;
+$action-button-color: #b697b8;
+$boost-disabled-color: #715c7d;
+
+@import 'flavours/cutiecity/styles/variables';
+@import 'flavours/cutiecity/styles/index';
+
+.icon-button.disabled {
+  color: $boost-disabled-color;
+}
+
+.link-footer p {
+  &, a {
+    color: $ui-base-lighter-color;
+  }
+}
+
+.status__info__icons {
+  color: $dark-text-color;
+
+  .fa-at {
+    color: #f493a6 !important;
+  }
+}
