@@ -1,10 +1,10 @@
 ---
 en:
   about:
-    about_mastodon_html: 'The social network of the future: No ads, no corporate surveillance, ethical design, and decentralization! Own your data with Mastodon!'
+    about_mastodon_html: 'The social network of the future: No ads, no corporate surveillance, ethical design, and decentralization! Own your data with Yastodon!'
     contact_missing: Not set
     contact_unavailable: N/A
-    hosted_on: Mastodon hosted on %{domain}
+    hosted_on: Yastodon hosted on %{domain}
     title: About
   accounts:
     follow: Follow
@@ -1023,7 +1023,7 @@ en:
       preamble_html: Sign in with your <strong>%{domain}</strong> credentials. If your account is hosted on a different server, you will not be able to log in here.
       title: Sign in to %{domain}
     sign_up:
-      preamble: With an account on this Mastodon server, you'll be able to follow any other person on the network, regardless of where their account is hosted.
+      preamble: With an account on this Yastodon server, you'll be able to follow any other person on the network, regardless of where their account is hosted.
       title: Let's get you set up on %{domain}!
     status:
       account_status: Account status
@@ -1466,7 +1466,7 @@ en:
       weibo: Weibo
     current_session: Current session
     description: "%{browser} on %{platform}"
-    explanation: These are the web browsers currently logged in to your Mastodon account.
+    explanation: These are the web browsers currently logged in to your Yastodon account.
     ip: IP
     platforms:
       adobe_air: Adobe Air
@@ -1492,7 +1492,7 @@ en:
     aliases: Account aliases
     appearance: Appearance
     authorized_apps: Authorized apps
-    back: Back to Mastodon
+    back: Back to Yastodon
     delete: Account deletion
     development: Development
     edit_profile: Edit profile
@@ -1697,7 +1697,7 @@ en:
     seamless_external_login: You are logged in via an external service, so password and e-mail settings are not available.
     signed_in_as: 'Signed in as:'
   verification:
-    explanation_html: 'You can <strong>verify yourself as the owner of the links in your profile metadata</strong>. For that, the linked website must contain a link back to your Mastodon profile. After adding the link you may need to come back here and re-save your profile for the verification to take effect. The link back <strong>must</strong> have a <code>rel="me"</code> attribute. The text content of the link does not matter. Here is an example:'
+    explanation_html: 'You can <strong>verify yourself as the owner of the links in your profile metadata</strong>. For that, the linked website must contain a link back to your Yastodon profile. After adding the link you may need to come back here and re-save your profile for the verification to take effect. The link back <strong>must</strong> have a <code>rel="me"</code> attribute. The text content of the link does not matter. Here is an example:'
     verification: Verification
   webauthn_credentials:
     add: Add new security key

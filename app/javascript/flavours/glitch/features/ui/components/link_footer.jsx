@@ -83,9 +83,9 @@ class LinkFooter extends React.PureComponent {
         </p>
 
         <p>
-          <strong>Mastodon</strong>:
+          <strong>Yastodon</strong>:
           {' '}
-          <a href='https://joinmastodon.org' target='_blank'><FormattedMessage id='footer.about' defaultMessage='About' /></a>
+          <a href='https://cutie.city/@nuz/110760942745904470' target='_blank'><FormattedMessage id='footer.about' defaultMessage='About' /></a>
           {DividingCircle}
           {/*
           <a href='https://joinmastodon.org/apps' target='_blank'><FormattedMessage id='footer.get_app' defaultMessage='Get the app' /></a>
