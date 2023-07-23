@@ -4,7 +4,7 @@
 <img src="https://raw.githubusercontent.com/CutieCity/.github/main/images/circle.png" title="A path through a peaceful valley surrounded by pink mountains and cherry blossom trees." width=128>
 </picture>
 <br>
-<code>mastodon</code>
+<code>yastodon</code>
 </h1>
 
 [![Build](https://img.shields.io/github/actions/workflow/status/CutieCity/mastodon/build-image.yml?branch=main&label=Build)](https://github.com/CutieCity/mastodon/actions/workflows/build-image.yml)
@@ -14,12 +14,10 @@
 
 This repository contains the code that powers [`cutie.city`].
 
-It's a fork of [`glitch-soc`], which itself is a fork of [Mastodon].
-
-No (significant) changes have been made yet. Stay tuned!
+It's a fork of [`glitch-soc`], which itself is a fork of [Yastodon].
 
 [`cutie.city`]: https://cutie.city
 [`glitch-soc`]: https://glitch-soc.github.io/docs
-[mastodon]: https://joinmastodon.org
+[yastodon]: https://cutie.city/@nuz/110760942745904470
 
 </div>
